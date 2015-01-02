@@ -15,7 +15,7 @@ def processEvent(cli,eventstr):
     print 'HostConfig=',info['HostConfig']
     print 'PortBindings=',info['HostConfig']['PortBindings']
 def events():
-    cli = Client(base_url='tcp://127.0.0.1:4243')
+    cli = Client(base_url='tcp://172.17.42.1:4243')
     eventiter = cli.events()
     
     while 1:
