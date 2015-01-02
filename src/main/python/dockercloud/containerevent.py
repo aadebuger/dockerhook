@@ -4,8 +4,9 @@ Created on Jan 2, 2015
 @author: aadebuger
 '''
 from docker import Client
-
-def processEvent(event):
+import json
+def processEvent(eventstr):
+    event = json.loads(eventstr)
     print 'id=',event['id']
     print 'status=',event['status']
 def events():
