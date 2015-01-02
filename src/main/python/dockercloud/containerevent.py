@@ -12,4 +12,4 @@ def events():
         print 'event',event
         
 if __name__ == '__main__':
-    pass
+    events();
