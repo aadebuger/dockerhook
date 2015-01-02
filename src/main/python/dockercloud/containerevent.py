@@ -5,6 +5,9 @@ Created on Jan 2, 2015
 '''
 from docker import Client
 
+def processEvent(event):
+    print 'id=',event['id']
+    print 'status=',event['status']
 def events():
     cli = Client(base_url='tcp://127.0.0.1:4243')
     eventiter = cli.events()
