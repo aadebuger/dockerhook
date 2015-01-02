@@ -11,6 +11,9 @@ def processEvent(cli,eventstr):
     print 'status=',event['status']
     info = cli.inspect_container(event['id'])
     print 'info=',info
+    print 'name=',info['name']
+    print 'HostConfig=',info['HostConfig']
+    
 def events():
     cli = Client(base_url='tcp://127.0.0.1:4243')
     eventiter = cli.events()
