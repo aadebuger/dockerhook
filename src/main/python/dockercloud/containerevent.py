@@ -15,6 +15,7 @@ def events():
     while 1:
             event = eventiter.next()
             print 'event',event
+            processEvent(event)
         
 if __name__ == '__main__':
     events();
