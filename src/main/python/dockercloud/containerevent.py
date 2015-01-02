@@ -11,7 +11,7 @@ def processEvent(cli,eventstr):
     print 'status=',event['status']
     info = cli.inspect_container(event['id'])
     print 'info=',info
-    print 'name=',info['name']
+    print 'name=',info['Name']
     print 'HostConfig=',info['HostConfig']
     
 def events():
