@@ -21,7 +21,7 @@ def filterPort(portvalue):
     if k ==-1:
         return portvalue
     else:
-        portvalue(k)
+        portvalue[k]
 def processPortitem(item,portdict):
         print 'item=',item,portdict[item]
         print 'host port=',filterPort(item)
