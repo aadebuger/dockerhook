@@ -15,8 +15,16 @@ def processEvent(cli,eventstr):
     print 'HostConfig=',info['HostConfig']
     print 'PortBindings=',info['HostConfig']['PortBindings']
     processPort(info['HostConfig']['PortBindings'])
+
+def filterPort(portvalue):
+    k =portvalue.find("/")
+    if k ==-1:
+        return portvalue
+    else:
+        portvalue(k)
 def processPortitem(item,portdict):
         print 'item=',item,portdict[item]
+        print 'host port=',filterPort(item)
 def processPort(portdict):
         print 'portdict.iterkeys',portdict.iterkeys()
         map(  lambda x: processPortitem (x,portdict) ,portdict.iterkeys());
