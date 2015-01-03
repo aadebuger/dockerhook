@@ -18,7 +18,9 @@ def processEvent(cli,eventstr):
 def processPortitem(item):
         print 'item=',item
 def processPort(portdict):
-        map(processPortitem,portdict.iterkeys);
+        print 'portdict.iterkeys',portdict.iterkeys
+#        map(processPortitem,portdict.iterkeys);
+
 def events():
     cli = Client(base_url='tcp://172.17.42.1:4243')
     eventiter = cli.events()
