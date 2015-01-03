@@ -15,11 +15,11 @@ def processEvent(cli,eventstr):
     print 'HostConfig=',info['HostConfig']
     print 'PortBindings=',info['HostConfig']['PortBindings']
     processPort(info['HostConfig']['PortBindings'])
-def processPortitem(item):
-        print 'item=',item
+def processPortitem(item,portdict):
+        print 'item=',item,portdict[item]
 def processPort(portdict):
         print 'portdict.iterkeys',portdict.iterkeys()
-        map(processPortitem,portdict.iterkeys());
+        map(  lambda x: processPortitem (x,portdict) ,portdict.iterkeys());
 
 def events():
     cli = Client(base_url='tcp://172.17.42.1:4243')
