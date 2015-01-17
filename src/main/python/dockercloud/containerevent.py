@@ -9,13 +9,15 @@ def processEvent(cli,eventstr):
     event = json.loads(eventstr)
     print 'id=',event['id']
     print 'status=',event['status']
-    info = cli.inspect_container(event['id'])
-    print 'info=',info
-    print 'name=',info['Name']
-    print 'HostConfig=',info['HostConfig']
-    print 'PortBindings=',info['HostConfig']['PortBindings']
-    processPort(info['HostConfig']['PortBindings'])
-
+    try:
+            info = cli.inspect_container(event['id'])
+            print 'info=',info
+            print 'name=',info['Name']
+            print 'HostConfig=',info['HostConfig']
+            print 'PortBindings=',info['HostConfig']['PortBindings']
+            processPort(info['HostConfig']['PortBindings'])
+    except Exception,ex:
+            print 'ex=',ex
 def filterPort(portvalue):
     k =portvalue.find("/")
     if k ==-1:
