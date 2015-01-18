@@ -5,6 +5,12 @@ Created on Jan 2, 2015
 '''
 from docker import Client
 import json
+import etcd
+client = etcd.Client(host='172.17.42.1', port=4001)
+def writeKey():
+
+    client.write('/nodes/web', 1)
+    
 def processEvent(cli,eventstr):
     event = json.loads(eventstr)
     print 'id=',event['id']
@@ -16,6 +22,7 @@ def processEvent(cli,eventstr):
             print 'HostConfig=',info['HostConfig']
             print 'PortBindings=',info['HostConfig']['PortBindings']
             processPort(info['HostConfig']['PortBindings'])
+            writeKey()
     except Exception,ex:
             print 'ex=',ex
 def filterPort(portvalue):
